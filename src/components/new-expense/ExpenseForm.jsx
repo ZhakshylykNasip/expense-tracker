@@ -9,6 +9,10 @@ export const ExpenseForm = ({ handleClick }) => {
   const [date, setDate] = useState("");
 
   const handleNewExpense = () => {
+    if (!title || !amount || !date) {
+      alert("Please write a new expense");
+      return;
+    }
     const newExpense = {
       title: title,
       amount: +amount,
