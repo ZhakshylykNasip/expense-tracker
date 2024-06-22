@@ -4,7 +4,7 @@ import Button from "../UI/button/Button";
 import { ExpenseForm } from "./ExpenseForm";
 import "./NewExpense.css";
 
-export const NewExpense = () => {
+export const NewExpense = ({ onAddExpense }) => {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   const handleClick = () => {
@@ -14,7 +14,7 @@ export const NewExpense = () => {
   return (
     <div className="wrapper-form">
       {isFormOpen ? (
-        <ExpenseForm handleClick={handleClick} />
+        <ExpenseForm handleClick={handleClick} onAddExpense={onAddExpense} />
       ) : (
         <div className="container-btn">
           <Button onClick={handleClick}>add a new Expense</Button>
