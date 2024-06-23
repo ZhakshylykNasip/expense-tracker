@@ -3,19 +3,23 @@ import "./ExpenseForm.css";
 import Button from "../UI/button/Button";
 import { Input } from "../UI/input/Input";
 
-export const ExpenseForm = ({ handleClick }) => {
+export const ExpenseForm = ({ handleClick, onAddExpense }) => {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
 
   const handleNewExpense = () => {
+    if (!title || !amount || !date) {
+      alert("Please write a new expense");
+      return;
+    }
     const newExpense = {
       title: title,
       amount: +amount,
       date: new Date(date),
       id: Date.now().toString(),
     };
-    console.log(newExpense);
+    onAddExpense(newExpense);
 
     setTitle("");
     setAmount("");
