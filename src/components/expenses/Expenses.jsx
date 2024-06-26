@@ -19,7 +19,7 @@ export const Expenses = ({ expenses }) => {
   return (
     <Card>
       <ExpenseFilter value={selectedFilter} onChange={handleSelected} />
-      <Chart />
+      <Chart expenses={filteredExpenses} />
       <ExpensesList expenses={filteredExpenses} />
     </Card>
   );
